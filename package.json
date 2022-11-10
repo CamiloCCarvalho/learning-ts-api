@@ -1,0 +1,20 @@
+{
+  "name": "typescript-basic-api",
+  "version": "1.0.0",
+  "description": "Exercicio simples para uso de APIs e typescript praticando usar interfaces",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamiloCCarvalho/typescript-basic-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CamiloCCarvalho/typescript-basic-api/issues"
+  },
+  "homepage": "https://github.com/CamiloCCarvalho/typescript-basic-api#readme"
+}
