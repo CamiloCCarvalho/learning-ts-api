@@ -30,7 +30,7 @@ async function getUserGithub(name: string) {
         repos_url: data["repos_url"]
     }
     listUser.push(newUser)
-    console.log(\\\\\\\\\\\\\\newUser)
+    console.log(` Novo Usuario add com sucesso:  ${newUser}`)
 }
 
 async function getUserInfo(name:string) {
@@ -65,15 +65,15 @@ function showUsers() {
     listUser.forEach(element => {
         listStringUsers += `${element.name} | `
     })
-    console.log(listStringUsers)
+    console.log(`Lista de Usuarios total: ${listStringUsers}`)
 }
 
-function getTotalRepos():number {
+function getTotalRepos():void {
     let totalRepos:number = 0
     listUser.forEach(element => {
         totalRepos += element.public_repos
     })
-    return totalRepos
+    console.log(`Numero total de REPOS: ${totalRepos}`)
 }
 
 function showTopFive() {
@@ -93,15 +93,22 @@ function showTopFive() {
         fourth: [listUser[3].name, listUser[3].public_repos],
         fifth: [listUser[4].name, listUser[4].public_repos]
     }
-    console.log(topFive)
+    console.log(`Lista do TOPFIVE:\n 
+                 Name(1): ${topFive.first[0]} NumberRepos: ${topFive.first[1]}\n
+                 Name(2): ${topFive.second[0]} NumberRepos: ${topFive.second[1]}\n
+                 Name(3): ${topFive.third[0]} NumberRepos: ${topFive.third[1]}\n
+                 Name(4): ${topFive.fourth[0]} NumberRepos: ${topFive.fourth[1]}\n
+                 Name(5): ${topFive.fifth[0]} NumberRepos: ${topFive.fifth[1]}\n`)
 }
 
+async function exec() {
+    await getUserInfo("camiloccarvalho")
+    await getUserInfo("Kwynto")
+    await getUserInfo("dirambora")
+    await getUserInfo("jonangeles-sanchez")
+    await getUserInfo("david-kariuki")
 
-getUserInfo("camiloccarvalho")
-getUserInfo("Kwynto")
-getUserInfo("dirambora")
-getUserInfo("jonangeles-sanchez")
-getUserInfo("david-kariuki")
-showUsers()
-getTotalRepos()
-showTopFive()
+    showUsers()
+    showTopFive()
+    getTotalRepos()
+}

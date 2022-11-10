@@ -55,7 +55,7 @@ function getUserGithub(name) {
                         repos_url: data["repos_url"]
                     };
                     listUser.push(newUser);
-                    console.log(newUser);
+                    console.log(" Novo Usuario add com sucesso:  ".concat(newUser));
                     return [2 /*return*/];
             }
         });
@@ -98,14 +98,14 @@ function showUsers() {
     listUser.forEach(function (element) {
         listStringUsers += "".concat(element.name, " | ");
     });
-    console.log(listStringUsers);
+    console.log("Lista de Usuarios total: ".concat(listStringUsers));
 }
 function getTotalRepos() {
     var totalRepos = 0;
     listUser.forEach(function (element) {
         totalRepos += element.public_repos;
     });
-    return totalRepos;
+    console.log("Numero total de REPOS: ".concat(totalRepos));
 }
 function showTopFive() {
     listUser.sort(function (firstItem, secondItem) {
@@ -124,13 +124,32 @@ function showTopFive() {
         fourth: [listUser[3].name, listUser[3].public_repos],
         fifth: [listUser[4].name, listUser[4].public_repos]
     };
-    console.log(topFive);
+    console.log("Lista do TOPFIVE:\n \n                 Name(1): ".concat(topFive.first[0], " NumberRepos: ").concat(topFive.first[1], "\n\n                 Name(2): ").concat(topFive.second[0], " NumberRepos: ").concat(topFive.second[1], "\n\n                 Name(3): ").concat(topFive.third[0], " NumberRepos: ").concat(topFive.third[1], "\n\n                 Name(4): ").concat(topFive.fourth[0], " NumberRepos: ").concat(topFive.fourth[1], "\n\n                 Name(5): ").concat(topFive.fifth[0], " NumberRepos: ").concat(topFive.fifth[1], "\n"));
 }
-getUserInfo("camiloccarvalho");
-getUserInfo("Kwynto");
-getUserInfo("dirambora");
-getUserInfo("jonangeles-sanchez");
-getUserInfo("david-kariuki");
-showUsers();
-getTotalRepos();
-showTopFive();
+function exec() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, getUserInfo("camiloccarvalho")];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, getUserInfo("Kwynto")];
+                case 2:
+                    _a.sent();
+                    return [4 /*yield*/, getUserInfo("dirambora")];
+                case 3:
+                    _a.sent();
+                    return [4 /*yield*/, getUserInfo("jonangeles-sanchez")];
+                case 4:
+                    _a.sent();
+                    return [4 /*yield*/, getUserInfo("david-kariuki")];
+                case 5:
+                    _a.sent();
+                    showUsers();
+                    showTopFive();
+                    getTotalRepos();
+                    return [2 /*return*/];
+            }
+        });
+    });
+}
