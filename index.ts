@@ -8,6 +8,7 @@ interface UserGithub {
     public_repos: number
     repos_url: string
     reposList?: ListRepos[]
+    message?: "Not Found"
 }
 
 interface ListRepos {
@@ -19,8 +20,8 @@ interface ListRepos {
 }
 
 async function getUserGithub(name: string) {
-    let response = await fetch(`https://api.github.com/users/${name}`)
-    let data = await response.json()
+    const response = await fetch(`https://api.github.com/users/${name}`)
+    const data = await response.json()
     let newUser: UserGithub = {
         id: data["id"],
         login: data["login"],
@@ -29,14 +30,18 @@ async function getUserGithub(name: string) {
         public_repos: data["public_repos"],
         repos_url: data["repos_url"]
     }
-    listUser.push(newUser)
-    console.log(` Novo Usuario add com sucesso:  ${newUser}`)
+    if(data.message) {
+        console.log(`Usuario ${name} não foi encontrado`)
+    } else {
+        listUser.push(newUser)
+        console.log(` Novo Usuario add com sucesso:  ${newUser}`)
+    }
 }
 
 async function getUserInfo(name:string) {
     await getUserGithub(name)
-    let response = await fetch(`https://api.github.com/users/${name}/repos`)
-    let data = await response.json()
+    const response = await fetch(`https://api.github.com/users/${name}/repos`)
+    const data = await response.json()
     console.log(data)
     listUser.forEach((element, index) => {
         if(element.name == name){
