@@ -99,11 +99,11 @@ function showTopFive() {
         fifth: [listUser[4].name, listUser[4].public_repos]
     }
     console.log(`Lista do TOPFIVE:\n 
-                 Name(1): ${topFive.first[0]} NumberRepos: ${topFive.first[1]}\n
-                 Name(2): ${topFive.second[0]} NumberRepos: ${topFive.second[1]}\n
-                 Name(3): ${topFive.third[0]} NumberRepos: ${topFive.third[1]}\n
-                 Name(4): ${topFive.fourth[0]} NumberRepos: ${topFive.fourth[1]}\n
-                 Name(5): ${topFive.fifth[0]} NumberRepos: ${topFive.fifth[1]}\n`)
+                 Name(1): ${topFive.first[0]} | NumberRepos: ${topFive.first[1]}\n
+                 Name(2): ${topFive.second[0]} | NumberRepos: ${topFive.second[1]}\n
+                 Name(3): ${topFive.third[0]} | NumberRepos: ${topFive.third[1]}\n
+                 Name(4): ${topFive.fourth[0]} | NumberRepos: ${topFive.fourth[1]}\n
+                 Name(5): ${topFive.fifth[0]} | NumberRepos: ${topFive.fifth[1]}\n`)
 }
 
 async function exec() {

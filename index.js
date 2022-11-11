@@ -54,8 +54,13 @@ function getUserGithub(name) {
                         public_repos: data["public_repos"],
                         repos_url: data["repos_url"]
                     };
-                    listUser.push(newUser);
-                    console.log(" Novo Usuario add com sucesso:  ".concat(newUser));
+                    if (data.message) {
+                        console.log("Usuario ".concat(name, " n\u00E3o foi encontrado"));
+                    }
+                    else {
+                        listUser.push(newUser);
+                        console.log(" Novo Usuario add com sucesso:  ".concat(newUser));
+                    }
                     return [2 /*return*/];
             }
         });
@@ -124,7 +129,7 @@ function showTopFive() {
         fourth: [listUser[3].name, listUser[3].public_repos],
         fifth: [listUser[4].name, listUser[4].public_repos]
     };
-    console.log("Lista do TOPFIVE:\n \n                 Name(1): ".concat(topFive.first[0], " NumberRepos: ").concat(topFive.first[1], "\n\n                 Name(2): ").concat(topFive.second[0], " NumberRepos: ").concat(topFive.second[1], "\n\n                 Name(3): ").concat(topFive.third[0], " NumberRepos: ").concat(topFive.third[1], "\n\n                 Name(4): ").concat(topFive.fourth[0], " NumberRepos: ").concat(topFive.fourth[1], "\n\n                 Name(5): ").concat(topFive.fifth[0], " NumberRepos: ").concat(topFive.fifth[1], "\n"));
+    console.log("Lista do TOPFIVE:\n \n                 Name(1): ".concat(topFive.first[0], " | NumberRepos: ").concat(topFive.first[1], "\n\n                 Name(2): ").concat(topFive.second[0], " | NumberRepos: ").concat(topFive.second[1], "\n\n                 Name(3): ").concat(topFive.third[0], " | NumberRepos: ").concat(topFive.third[1], "\n\n                 Name(4): ").concat(topFive.fourth[0], " | NumberRepos: ").concat(topFive.fourth[1], "\n\n                 Name(5): ").concat(topFive.fifth[0], " | NumberRepos: ").concat(topFive.fifth[1], "\n"));
 }
 function exec() {
     return __awaiter(this, void 0, void 0, function () {
